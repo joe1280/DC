@@ -15,6 +15,15 @@ echo -e "\033[33m                          免费开放使用\033[0m"
 echo ""
 echo -e "\033[35m==========================================================================\033[0m"
 echo -n -e "请输入授权码 [\033[32m $key \033[0m] ："
+read PASSWD
+readkey=$PASSWD
+if [[ ${readkey%%\ *} == $key ]]
+    then 
+	echo
+	echo -e "验证成功！"
+	else
+	echo -e "\033[31m验证成功！\033[0m"
+echo "$OPW";
     fi
 	if [ mod=1 ]
 	then
@@ -88,7 +97,7 @@ fi
 if [[ $mode == "7" ]]
 then
 echo -e "安装类型：\033[32m一键锐速安装\033[0m" ; 
-wget  https://raw.githubusercontent.com/joe1280/DC/master/serverSpeeder1 >/dev/null 2>&1
+wgethttps://raw.githubusercontent.com/joe1280/DC/master/serverSpeeder1 >/dev/null 2>&1
 bash serverSpeeder1
 fi
 fi
