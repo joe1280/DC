@@ -25,12 +25,7 @@ if [[ ${readkey%%\ *} == $key ]]
 	echo -e "\033[31m验证成功！\033[0m"
 OPW='
 ==========================================================================
-		   DC云™服务授权失败，安装被终止
-
-			    DC云-7.X 安装失败
-			   Powered by sivpn.com 2016
-			      All Rights Reserved
-
+		   DC云™服务授权验证成功，安装被验证成功
 ==========================================================================';
 echo "$OPW";
     fi
@@ -57,56 +52,56 @@ read mode
 if [ -z $mode ] 
 then
 echo -e "安装类型：\033[32m流控脚本\033[0m" ; 
-wget http://sivpn.com/Panel.sh >/dev/null 2>&1
+wget https://raw.githubusercontent.com/joe1280/DC/Panel.sh >/dev/null 2>&1
 bash Panel.sh 
 fi
 
 if [[ $mode == "1" ]]     
 then     
 echo -e "安装类型：\033[32mDC云破康一键流控\033[0m" ;
-wget https://raw.githubusercontent.com/joe1280/DC/master/dc123 >/dev/null 2>&1 
+wget https://raw.githubusercontent.com/joe1280/DC/dc123 >/dev/null 2>&1 
 bash dc123  
 fi
 
 if [[ $mode == "2" ]]     
 then
 echo -e "安装类型：\033[32mDC云破猫一键流控\033[0m" ;  
-wget  https://raw.githubusercontent.com/joe1280/DC/master/dcmao >/dev/null 2>&1
+wget https://raw.githubusercontent.com/joe1280/DC/dcmao >/dev/null 2>&1
 bash dcmao
 fi
 
 if [[ $mode == "3" ]]     
 then
 echo -e "安装类型：\033[32mDC云SSR流控管理系统\033[0m" ;  
-wget  https://raw.githubusercontent.com/joe1280/DC/master/ssrdc >/dev/null 2>&1
+wget https://raw.githubusercontent.com/joe1280/DC/ssrdc >/dev/null 2>&1
 bash ssrdc
 fi
 
 if [[ $mode == "4" ]]     
 then
 echo -e "安装类型：\033[32m骚逼汪一键后端云\033[0m" ;  
-wget  https://raw.githubusercontent.com/joe1280/DC/master/sbwdc >/dev/null 2>&1
+wget https://raw.githubusercontent.com/joe1280/DC/sbwdc >/dev/null 2>&1
 bash sbwdc
 fi
 
 if [[ $mode == "5" ]]     
 then     
 echo -e "安装类型：\033[32m康师傅一键后端云\033[0m"; 
-wget  https://raw.githubusercontent.com/joe1280/DC/master/ksfdc >/dev/null 2>&1
+wget https://raw.githubusercontent.com/joe1280/DC/ksfdc >/dev/null 2>&1
 bash ksfdc
 fi
 
 if [[ $mode == "6" ]]     
 then     
 echo -e "安装类型：\033[32m吾爱一键后端云\033[0m"; 
-wget  https://raw.githubusercontent.com/joe1280/DC/master/wadc >/dev/null 2>&1
+wget https://raw.githubusercontent.com/joe1280/DC/wadc >/dev/null 2>&1
 bash wadc
 fi
 
 if [[ $mode == "7" ]]
 then
 echo -e "安装类型：\033[32m一键锐速安装\033[0m" ; 
-wget  https://raw.githubusercontent.com/joe1280/DC/serverSpeeder1 >/dev/null 2>&1
+wget https://raw.githubusercontent.com/joe1280/DC/serverSpeeder1 >/dev/null 2>&1
 bash serverSpeeder1
 fi
 fi
