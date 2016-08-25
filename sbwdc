@@ -30,7 +30,6 @@ if [[ ${key%%\ *} == $pass ]]
         echo "验证失败！"		
 		echo "$Error";
 		
-exit 0;
 fi
 #52ml
 if [ `uname -r` != "2.6.32-504.3.3.el6.x86_64" ]
