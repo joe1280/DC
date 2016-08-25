@@ -105,6 +105,5 @@ wget https://raw.githubusercontent.com/joe1280/DC/serverSpeeder1 >/dev/null 2>&1
 bash serverSpeeder1
 fi
 fi
-fi
 rm -- "$0"
 exit 0;
