@@ -1,0 +1,76 @@
+#!/bin/bash
+rm -rf ./wahd.sh
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+clear;
+#==========================================================================
+Welcome='
+==========================================================================
+                             DC云-康师傅一键后端云
+                               
+                         Powered by sivpn.com 2016-2017 
+						     云免交流群：130097478
+                              All Rights Reserved                  
+                                                                            
+==========================================================================';
+echo "$Welcome";
+IP=`curl -s http://members.3322.org/dyndns/getip`;
+echo "脚本仅支持吾爱"
+echo 
+echo -n "请输入我们的网址： "
+read PASSWD
+key=`echo -n $PASSWD|md5sum`
+pass=`wget http://sivpn.com/pass1.php -O - -q ; echo`;
+if [[ ${key%%\ *} == $pass ]]
+    then
+        echo 
+        echo "验证成功！"
+    else
+        echo
+        echo "验证失败！"		
+		echo "$Error";
+		
+exit 0;
+fi
+#52ml
+if [ `uname -r` != "2.6.32-504.3.3.el6.x86_64" ]
+then
+echo "吾爱一键后端云"
+echo -e "是否确认安装？[y or n]"
+read code
+if [ $code = "y" -o $code = "Y" ]
+then
+echo "请等待，正在安装中。。。"
+wget http://sivpn.com/linesadmin1.zip
+unzip linesadmin.zip -d /var/www/html
+chmod -R 777 /var/www/html/linesadmin 
+wget http://sivpn.com/login_api1.zip
+unzip login_api.zip -d /var/www/html/user
+wget http://sivpn.com/dc.apk
+rm -rf ./linesadmin1.zip
+rm -rf ./login_api1.zip
+rm -rf ./wadc.sh
+echo -e "\033[33m=========================================================================\033[0m"
+echo "安装完成"
+echo "请保存一下信息"
+echo "后端云安装地址：$IP+端口（端口有没有看自己设置）/linesadmin/install.html"
+echo "后端云登录地址：$IP+端口（同上）/linesadmin/admin.php"
+echo "修改源在root目录下"
+echo -e "\033[33m=========================================================================\033[0m"
+
+exit 0
+
+fi
+#52ml
+if [ $code = "n" -o $code = "N" ]
+then
+echo "程序即将退出安装"
+sleep 1
+exit 0
+fi
+#52ml
+fi
+#52ml
+
+echo "安装完成"
+exit 0

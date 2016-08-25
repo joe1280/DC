@@ -1,0 +1,74 @@
+#!/bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+clear;
+#==========================================================================
+Welcome='
+==========================================================================
+                                无限制锐速一键包
+                               
+                         Powered by ymcml.cn 2016-2017                     
+                              All Rights Reserved                  
+                                                                            
+==========================================================================';
+echo "$Welcome";
+echo "脚本仅支持6.X 64位 CentOS系统"
+echo 
+echo -n "请输入我们的网址： "
+read PASSWD
+key=`echo -n $PASSWD|md5sum`
+pass=`wget http://cs.3snt.cn/pass.php -O - -q ; echo`;
+if [[ ${key%%\ *} == $pass ]]
+    then
+        echo 
+        echo "验证成功！"
+    else
+        echo
+        echo "验证失败！"		
+		echo "$Error";
+		
+exit 0;
+fi
+#ymcml
+if [ `uname -r` != "2.6.32-504.3.3.el6.x86_64" ]
+then
+echo "内核不一致，即将替换内核"
+echo -e "是否确认？[y or n]"
+read code
+if [ $code = "y" -o $code = "Y" ]
+then
+echo "请等待，正在替换内核。。。"
+wget http://code.taobao.org/svn/serverSpeeder/kernel-firmware-2.6.32-504.3.3.el6.noarch.rpm >/dev/null 2>&1
+rpm -ivh kernel-firmware-2.6.32-504.3.3.el6.noarch.rpm --force
+rm -f kernel-firmware-2.6.32-504.3.3.el6.noarch.rpm
+wget http://code.taobao.org/svn/serverSpeeder/kernel-2.6.32-504.3.3.el6.x86_64.rpm >/dev/null 2>&1
+rpm -ivh kernel-2.6.32-504.3.3.el6.x86_64.rpm --force
+rm -f kernel-2.6.32-504.3.3.el6.x86_64.rpm
+echo "内核替换完成，系统即将重启"
+echo "重启系统之后请再次执行该脚本"
+sleep 5
+reboot
+rm -f serverSpeeder.sh
+exit 0
+fi
+#ymcml
+if [ $code = "n" -o $code = "N" ]
+then
+echo "程序即将退出安装"
+sleep 1
+rm -f serverSpeeder.sh
+exit 0
+fi
+#ymcml
+fi
+#ymcml
+echo "正在安装锐速无限制版"
+wget http://code.taobao.org/svn/serverSpeeder/serverSpeeder.tar.gz >/dev/null 2>&1
+tar -zxvf serverSpeeder.tar.gz >/dev/null 2>&1
+bash install.sh
+rm -f serverSpeeder.tar.gz >/dev/null 2>&1
+rm -rf apxfiles >/dev/null 2>&1
+rm -f install.sh >/dev/null 2>&1
+echo "安装完成"
+rm -f serverSpeeder.sh
+exit 0
