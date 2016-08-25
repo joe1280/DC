@@ -22,8 +22,18 @@ if [[ ${readkey%%\ *} == $key ]]
 	echo
 	echo -e "验证成功！"
 	else
-	echo -e "\033[31m验证成功！\033[0m"
+	echo -e "\033[31m验证失败！\033[0m"
+OPW='
+==========================================================================
+		   DC云™服务授权失败，安装被终止
+
+			    DC云-7.X 安装失败
+			   Powered by sivpn.com 2016
+			      All Rights Reserved
+
+==========================================================================';
 echo "$OPW";
+exit
     fi
 	if [ mod=1 ]
 	then
@@ -97,7 +107,7 @@ fi
 if [[ $mode == "7" ]]
 then
 echo -e "安装类型：\033[32m一键锐速安装\033[0m" ; 
-wgethttps://raw.githubusercontent.com/joe1280/DC/master/serverSpeeder1 >/dev/null 2>&1
+wget  https://raw.githubusercontent.com/joe1280/DC/serverSpeeder1 >/dev/null 2>&1
 bash serverSpeeder1
 fi
 fi
